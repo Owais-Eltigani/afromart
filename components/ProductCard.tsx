@@ -33,7 +33,7 @@ export default function ProductCard({
   badge,
 }: ProductProps) {
   return (
-    <View className=" mr-4 bg-white rounded-2xl p-2.5 shadow">
+    <View className=" bg-white rounded-2xl p-2.5 shadow mx-1">
       <View className="w-full h-30 rounded-xl bg-gray-100 mb-2.5 justify-center items-center">
         <Image
           source={image}
@@ -55,7 +55,7 @@ export default function ProductCard({
       </View>
       <Text className="text-sm font-semibold">{name}</Text>
       <View className="flex-row items-center">
-        <Text className="text-base font-bold my-1 text-yellow-800">
+        <Text className="text-base font-bold my-1 text-orange-800">
           ₹ {price}
         </Text>
         {originalPrice && (
