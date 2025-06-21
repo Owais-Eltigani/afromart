@@ -7,28 +7,33 @@ export default function Layout() {
     <Tabs
       initialRouteName="home"
       screenOptions={{
-        tabBarStyle: {
-          width: '100%',
-          paddingHorizontal: 20,
-          height: 60,
-          //   marginBottom: 30,
-        },
         tabBarShowLabel: false,
+
+        // tabBarStyle: {
+        //   height: 50,
+        //   borderTopWidth: 0,
+        //   // padding: 10,
+        //   elevation: 30,
+        //   shadowColor: '#000',
+        //   shadowOffset: { width: 0, height: -3 },
+        //   shadowOpacity: 0.1,
+        //   shadowRadius: 3,
+        // },
+
         tabBarItemStyle: {
-          height: '100%',
+          // padding: 8,
+
+          marginTop: 7,
           width: '100%',
-          alignItems: 'center',
-          justifyContent: 'center',
+          height: '100%',
         },
       }}>
       <Tabs.Screen
         name="home"
         options={{
           headerShown: false,
-          title: 'Home',
-
           tabBarIcon: ({ focused }) => (
-            <TabIcon title={'Home'} focused={focused} />
+            <TabIcon focused={focused} type="home" />
           ),
         }}
       />
@@ -36,10 +41,8 @@ export default function Layout() {
         name="search"
         options={{
           headerShown: false,
-          title: 'Search',
-
           tabBarIcon: ({ focused }) => (
-            <TabIcon title={'Search'} focused={focused} />
+            <TabIcon focused={focused} type="search" />
           ),
         }}
       />
@@ -47,10 +50,8 @@ export default function Layout() {
         name="cart"
         options={{
           headerShown: false,
-          title: 'Cart',
-
           tabBarIcon: ({ focused }) => (
-            <TabIcon title={'Cart'} focused={focused} />
+            <TabIcon focused={focused} type="cart" />
           ),
         }}
       />
@@ -58,9 +59,8 @@ export default function Layout() {
         name="profile"
         options={{
           headerShown: false,
-          title: 'Profile',
           tabBarIcon: ({ focused }) => (
-            <TabIcon title={'Profile'} focused={focused} />
+            <TabIcon focused={focused} type="person" />
           ),
         }}
       />

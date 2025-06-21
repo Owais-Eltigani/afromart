@@ -1,3 +1,4 @@
+import InputField from '@/components/InputField';
 import ProductCard from '@/components/ProductCard';
 import {
   categories,
@@ -6,13 +7,13 @@ import {
   newArrivals,
   recommendedProducts,
 } from '@/constants';
-import { Feather, Ionicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import {
   FlatList,
+  ImageBackground,
   ScrollView,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -23,37 +24,34 @@ export default function Home() {
     //* top section
     <SafeAreaView className="flex-1 bg-stone-100" edges={['top']}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View className="flex-row justify-between items-center px-5 py-2.5 bg-white">
-          <View>
-            <Text className="text-2xl font-bold">AfroMart</Text>
-            <Text className="text-sm text-gray-500">
-              Discover African Excellence
-            </Text>
-          </View>
-          <View className="flex-row items-center">
-            <Ionicons name="notifications-outline" size={24} color="black" />
-            <View className="ml-4">
-              <Ionicons name="basket-outline" size={26} color="black" />
-              <View className="absolute -right-1.5 -top-1 bg-red-500 rounded-lg w-4 h-4 justify-center items-center">
-                <Text className="text-white text-[10px] font-bold">2</Text>
+        <ImageBackground
+          source={require('@/assets/images/texture.jpg')}
+          className="w-full h-[120px] rounded-b-[30px] overflow-hidden">
+          <View className="flex-1 flex-row justify-between items-center px-5 py-2.5 bg-yellow-800/85">
+            <View>
+              <Text className="text-3xl font-extrabold text-white">
+                AfroMart
+              </Text>
+              <Text className="text-sm font-bold  text-gray-200">
+                Discover African Excellence
+              </Text>
+            </View>
+            <View className="flex-row items-center">
+              <Ionicons name="notifications-outline" size={24} color="white" />
+              <View className="ml-4">
+                <Ionicons name="basket-outline" size={26} color="white" />
+                <View className="absolute -right-1.5 -top-1 bg-red-500 rounded-lg w-4 h-4 justify-center items-center">
+                  <Text className="text-white text-[10px] font-bold">2</Text>
+                </View>
               </View>
             </View>
           </View>
-        </View>
+        </ImageBackground>
         {/* //* top section  // */}
 
-        <View className="flex-row items-center bg-white rounded-full mx-5 my-2.5 px-2.5 shadow-sm border border-gray-200">
-          <Feather
-            name="search"
-            size={20}
-            color="gray"
-            style={{ marginLeft: 15 }}
-          />
-          <TextInput
-            placeholder="Search for African products..."
-            className="flex-1 h-12 pl-2.5 text-base"
-          />
-        </View>
+        {/* //* search component*/}
+        <InputField />
+
         {/* //* search component*/}
 
         <View className="px-5 my-2.5">

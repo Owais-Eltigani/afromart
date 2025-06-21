@@ -1,19 +1,25 @@
-import { Text } from '@react-navigation/elements';
+import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { View } from 'react-native';
-import Feather from 'react-native-vector-icons/Feather';
 
-export default function TabIcon({
-  title,
-  focused,
-}: {
-  title: string;
+type IconPrope = {
   focused: boolean;
-}) {
+  type: string;
+};
+
+export default function TabIcon({ focused, type }: IconPrope) {
   return (
-    <View className="flex border w-[70px] h-full ">
-      <Feather name={title.toLowerCase()} color="#000" size={24} />
-      <Text className="color-white"> {title}</Text>
+    <View className="items-center flex justify-center">
+      <View
+        className={`w-12 h-8  rounded-lg items-center justify-center ${
+          focused ? 'bg-orange-100' : 'bg-transparent'
+        }`}>
+        <Ionicons
+          name={focused ? type : `${type}-outline`}
+          size={24}
+          color={focused ? '#F97316' : '#6B7280'}
+        />
+      </View>
     </View>
   );
 }
