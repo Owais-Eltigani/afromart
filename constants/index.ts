@@ -1,0 +1,163 @@
+export const categories = [
+  {
+    name: 'Food & Spices',
+    icon: '🌶️',
+    color: '#FEF3C7',
+    text: '#78350F',
+    border: '#FDE68A',
+    badge: { type: '', color: '', content: '' },
+  },
+  {
+    name: 'Attire & Clothing',
+    icon: '👗',
+    color: '#FEF9C3',
+    text: '#713F12',
+    border: '#FEF08A',
+    badge: { type: '', color: '', content: '' },
+  },
+  {
+    name: 'Perfumes',
+    icon: '🌸',
+    color: '#FFEDD5',
+    text: '#7C2D12',
+    border: '#FED7AA',
+    badge: { type: '', color: '', content: '' },
+  },
+  {
+    name: 'Crafts & Art',
+    icon: '🎨',
+    color: '#F5F5F4',
+    text: '#1C1917',
+    border: '#E7E5E4',
+    badge: { type: '', color: '', content: '' },
+  },
+  {
+    name: 'Jewelry',
+    icon: '💎',
+    color: '#FDE68A',
+    text: '#78350F',
+    border: '#FCD34D',
+    badge: { type: '', color: '', content: '' },
+  },
+  {
+    name: 'Home Decor',
+    icon: '🏺',
+    color: '#FEF08A',
+    text: '#713F12',
+    border: '#FDE047',
+    badge: { type: 'sale', color: 'red', content: '15%' },
+  },
+];
+
+export const featuredProducts = [
+  {
+    id: '1',
+    name: 'Ankara Print Dress',
+    price: 15000,
+    category: 'Attire',
+    rating: 4.8,
+    image: require('@/assets/images/react-logo.png'),
+    badge: { type: '', color: '', content: '' },
+  },
+  {
+    id: '2',
+    name: 'Shea Butter Perfume',
+    price: 8500,
+    category: 'Perfumes',
+    rating: 4.9,
+    image: require('@/assets/images/react-logo.png'),
+    badge: { type: 'sale', color: 'green', content: 'New' },
+  },
+  {
+    id: '3',
+    name: 'Jollof Rice Mix',
+    price: 2500,
+    category: 'Food',
+    rating: 4.7,
+    image: require('@/assets/images/react-logo.png'),
+    badge: { type: '', color: '', content: '' },
+  },
+];
+
+export const recommendedProducts = [
+  {
+    id: '1',
+    name: 'Hand-woven Kente Scarf',
+    price: 5000,
+    rating: 4.6,
+    category: 'Attire',
+    image: require('@/assets/images/react-logo.png'),
+    badge: { type: '', color: '', content: '' },
+  },
+  {
+    id: '2',
+    name: 'Beaded Maasai Necklace',
+    price: 7500,
+    rating: 4.9,
+    category: 'Jewelry',
+    image: require('@/assets/images/react-logo.png'),
+    badge: { type: 'sale', color: 'blue', content: 'Best Seller' },
+  },
+  {
+    id: '3',
+    name: 'Moroccan Lantern',
+    price: 9000,
+    rating: 4.8,
+    category: 'Home Decor',
+    image: require('@/assets/images/react-logo.png'),
+    badge: { type: '', color: '', content: '' },
+  },
+  {
+    id: '4',
+    name: 'Spicy Suya Mix',
+    price: 1500,
+    rating: 4.5,
+    category: 'Food & Spices',
+    image: require('@/assets/images/react-logo.png'),
+    badge: { type: '', color: '', content: '' },
+  },
+];
+
+export const newArrivals = [
+  {
+    id: '5',
+    name: 'Modern Mudcloth Pillow',
+    price: 4500,
+    rating: 4.9,
+    category: 'Home Decor',
+    image: require('@/assets/images/react-logo.png'),
+    badge: { type: 'new', color: 'green', content: 'New' },
+  },
+  {
+    id: '6',
+    name: 'Adire Tie-Dye T-Shirt',
+    price: 3500,
+    rating: 4.7,
+    category: 'Attire',
+    image: require('@/assets/images/react-logo.png'),
+    badge: { type: 'new', color: 'green', content: 'New' },
+  },
+];
+
+export const discountsAndOffers = [
+  {
+    id: '7',
+    name: 'Kenyan Coffee Beans',
+    price: 2000,
+    originalPrice: 2500,
+    rating: 4.8,
+    category: 'Food & Spices',
+    image: require('@/assets/images/react-logo.png'),
+    badge: { type: 'discount', color: 'red', content: '20% Off' },
+  },
+  {
+    id: '8',
+    name: 'Ghanaian Black Soap',
+    price: 1800,
+    originalPrice: 2200,
+    rating: 4.9,
+    category: 'Beauty',
+    image: require('@/assets/images/react-logo.png'),
+    badge: { type: 'discount', color: 'red', content: '18% Off' },
+  },
+];
