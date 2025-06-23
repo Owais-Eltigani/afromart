@@ -7,8 +7,10 @@ import {
   newArrivals,
   recommendedProducts,
 } from '@/constants';
+import { supabase } from '@/lib/supabase';
 import { Ionicons } from '@expo/vector-icons';
-import React from 'react';
+import { Session } from '@supabase/supabase-js';
+import React, { useEffect, useState } from 'react';
 import {
   FlatList,
   ImageBackground,
@@ -19,7 +21,20 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+//
 export default function Home() {
+  //
+
+  const [userSession, setUserSession] = useState<Session | null>(null);
+  // console.log('home.tsx');
+
+  useEffect(async () => {
+    const session = await supabase.auth.getSession();
+
+    setUserSession(session.data.session);
+  }, []);
+
+  //
   return (
     //* top section
     <SafeAreaView className="flex-1 bg-stone-100" edges={['top']}>
@@ -30,7 +45,7 @@ export default function Home() {
           <View className="flex-1 flex-row justify-between items-center px-5 py-2.5 bg-yellow-800/85">
             <View>
               <Text className="text-3xl font-extrabold text-white">
-                AfroMart
+                AfroMart {userSession && userSession?.user.id.slice(0, 5)}
               </Text>
               <Text className="text-sm font-bold  text-gray-200">
                 Discover African Excellence

@@ -1,14 +1,40 @@
-import { Link } from 'expo-router';
-import React from 'react';
-import { Text } from 'react-native';
+import Login from '@/components/Login';
+import { supabase } from '@/lib/supabase';
+import { Redirect } from 'expo-router';
+import React, { useEffect, useState } from 'react';
+import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Index() {
+  const [sessionExist, setSessionExist] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const checkSession = async () => {
+      setLoading(true);
+
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      if (session) {
+        setSessionExist(true);
+      }
+    };
+    checkSession();
+  }, []);
+
+  //
   return (
-    <SafeAreaView className="bg-black p-5">
-      <Link href={'/(root)/(tabs)/home'} className="text-gray-200 text-2xl">
-        <Text>Edit app/index.tsx to edit this screen quickly</Text>
-      </Link>
+    <SafeAreaView>
+      {loading && (
+        <View>
+          <Text className="text-2xl font-bold">Loading... </Text>
+        </View>
+      )}
+
+      {sessionExist && <Redirect href={'/(root)/(tabs)/home'} />}
+      {!sessionExist && <Login />}
     </SafeAreaView>
   );
 }
