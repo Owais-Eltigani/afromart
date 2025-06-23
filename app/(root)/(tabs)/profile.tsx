@@ -66,7 +66,7 @@ export default function Profile() {
             <TouchableOpacity
               key={item.text}
               className="flex-row items-center bg-white p-4 rounded-xl mb-3 shadow-sm">
-              <Ionicons name={item.icon as any} size={24} color="#4B5563" />
+              <Ionicons name={item.icon as any} size={24} />
               <View className="flex-1 ml-4">
                 <Text className="text-base font-semibold">{item.text}</Text>
                 <Text className="text-sm text-gray-500">{item.subtext}</Text>

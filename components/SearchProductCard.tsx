@@ -33,7 +33,7 @@ export default function SearchProductCard(props: SearchProductCardProps) {
             style={{ resizeMode: 'contain' }}
           />
           <TouchableOpacity className="absolute top-1 right-1 bg-white/70 rounded-lg p-1">
-            <Ionicons name="heart-outline" size={18} color="black" />
+            <Ionicons name="heart-outline" size={24} color="red" />
           </TouchableOpacity>
         </View>
 
