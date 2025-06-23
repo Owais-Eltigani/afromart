@@ -1,16 +1,8 @@
 import InputField from '@/components/InputField';
 import ProductCard from '@/components/ProductCard';
-import {
-  categories,
-  discountsAndOffers,
-  featuredProducts,
-  newArrivals,
-  recommendedProducts,
-} from '@/constants';
-import { supabase } from '@/lib/supabase';
+import { categories, products } from '@/constants';
 import { Ionicons } from '@expo/vector-icons';
-import { Session } from '@supabase/supabase-js';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   FlatList,
   ImageBackground,
@@ -25,14 +17,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export default function Home() {
   //
 
-  const [userSession, setUserSession] = useState<Session | null>(null);
-  // console.log('home.tsx');
-
-  useEffect(async () => {
-    const session = await supabase.auth.getSession();
-
-    setUserSession(session.data.session);
-  }, []);
+  const discountsAndOffers = products.slice(0, 3);
+  const featuredProducts = products.slice(3, 6);
+  const recommendedProducts = products.slice(0, 5);
+  const newArrivals = products.slice(4, 7);
 
   //
   return (
@@ -45,7 +33,7 @@ export default function Home() {
           <View className="flex-1 flex-row justify-between items-center px-5 py-2.5 bg-yellow-800/85">
             <View>
               <Text className="text-3xl font-extrabold text-white">
-                AfroMart {userSession && userSession?.user.id.slice(0, 5)}
+                AfroMart
               </Text>
               <Text className="text-sm font-bold  text-gray-200">
                 Discover African Excellence

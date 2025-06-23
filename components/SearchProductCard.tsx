@@ -16,23 +16,12 @@ type SearchProductCardProps = {
   category: string;
   rating: number;
   reviews: number;
-  freeDelivery: boolean;
-  authentic: boolean;
   image: ImageSourcePropType;
 };
 
 export default function SearchProductCard(props: SearchProductCardProps) {
-  const {
-    name,
-    price,
-    originalPrice,
-    category,
-    rating,
-    reviews,
-    freeDelivery,
-    authentic,
-    image,
-  } = props;
+  const { name, price, originalPrice, category, rating, reviews, image } =
+    props;
 
   return (
     <View className="bg-white py-4 pl-4 pr-3 rounded-xl shadow-sm mb-4">
@@ -85,21 +74,6 @@ export default function SearchProductCard(props: SearchProductCardProps) {
         </View>
       </View>
       {/*  */}
-
-      <View className="flex flex-row justify-center my-2 items-center gap-7 mt-5">
-        {freeDelivery && (
-          <View className="flex-row items-center ">
-            <Ionicons name="rocket-outline" size={14} color="green" />
-            <Text className="text-xs text-gray-500 ml-1">Free delivery</Text>
-          </View>
-        )}
-        {authentic && (
-          <View className="flex-row items-center ">
-            <Ionicons name="shield-checkmark-outline" size={14} color="blue" />
-            <Text className="text-xs text-gray-500 ml-1">Authentic</Text>
-          </View>
-        )}
-      </View>
     </View>
   );
 }

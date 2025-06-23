@@ -1,12 +1,6 @@
 import InputField from '@/components/InputField';
 import SearchProductCard from '@/components/SearchProductCard';
-import {
-  categories,
-  discountsAndOffers,
-  featuredProducts,
-  newArrivals,
-  recommendedProducts,
-} from '@/constants';
+import { categories, products } from '@/constants';
 import React from 'react';
 import {
   FlatList,
@@ -17,15 +11,9 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const allProducts = [
-  ...featuredProducts,
-  ...recommendedProducts,
-  ...newArrivals,
-  ...discountsAndOffers,
-];
 const filterCategories = [
   'All',
-  ...new Set(categories.map(c => c.name.split(' & ')[0])),
+  ...new Set(categories.map(c => c.name.toLowerCase().split(' & ')[0])),
 ];
 
 export default function Search() {
@@ -33,8 +21,8 @@ export default function Search() {
 
   const filteredProducts =
     activeCategory === 'All'
-      ? allProducts
-      : allProducts.filter(p => p.category.includes(activeCategory));
+      ? products
+      : products.filter(p => p.category === activeCategory);
 
   return (
     <SafeAreaView className="flex-1 bg-gray-50">

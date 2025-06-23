@@ -1,12 +1,12 @@
-import { featuredProducts } from '@/constants';
+import { products } from '@/constants';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const initialCartItems = [
-  { ...featuredProducts[0], quantity: 1 },
-  { ...featuredProducts[1], quantity: 1 },
+  { ...products[0], quantity: 1 },
+  { ...products[1], quantity: 1 },
 ];
 
 export default function Cart() {

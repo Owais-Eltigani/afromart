@@ -36,7 +36,7 @@ export default function ProductCard({
     <View className=" bg-white rounded-2xl p-2.5 shadow mx-1">
       <View className="w-full h-30 rounded-xl bg-gray-100 mb-2.5 justify-center items-center">
         <Image
-          source={image}
+          source={{ uri: image }}
           className="w-48 h-48"
           style={{ resizeMode: 'contain' }}
         />
