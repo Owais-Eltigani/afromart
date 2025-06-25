@@ -1,4 +1,6 @@
+import { supabase } from '@/lib/supabase';
 import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 import React from 'react';
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -31,6 +33,11 @@ const menuItems = [
 ];
 
 export default function Profile() {
+  const signOut = async () => {
+    await supabase.auth.signOut();
+
+    router.replace('/');
+  };
   return (
     <SafeAreaView className="flex-1 bg-gray-50" edges={['top']}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -81,7 +88,9 @@ export default function Profile() {
         </View>
 
         <View className="px-5 mt-5 mb-10">
-          <TouchableOpacity className="border border-red-500 rounded-xl p-4">
+          <TouchableOpacity
+            className="border border-red-500 rounded-xl p-4"
+            onPress={signOut}>
             <Text className="text-center text-red-500 font-bold text-base">
               Sign Out
             </Text>

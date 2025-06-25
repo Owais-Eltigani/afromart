@@ -32,9 +32,10 @@ export default function ProductCard({
   category,
   rating,
   badge,
+  id,
 }: ProductProps) {
   return (
-    <TouchableOpacity onPress={() => router.push('/(root)/product/2')}>
+    <TouchableOpacity onPress={() => router.push(`/(root)/product/${id}`)}>
       <View className=" bg-white rounded-2xl p-2.5 shadow mx-1">
         <View className="w-full h-30 rounded-xl bg-gray-100 mb-2.5 justify-center items-center">
           <Image

@@ -1,8 +1,9 @@
 import InputField from '@/components/InputField';
 import ProductCard from '@/components/ProductCard';
 import { categories, products } from '@/constants';
+import { supabase } from '@/lib/supabase';
 import { Ionicons } from '@expo/vector-icons';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   FlatList,
   ImageBackground,
@@ -17,10 +18,28 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export default function Home() {
   //
 
-  const discountsAndOffers = products.slice(0, 3);
-  const featuredProducts = products.slice(3, 6);
-  const recommendedProducts = products.slice(0, 5);
-  const newArrivals = products.slice(4, 7);
+  const [product, setProducts] = useState<keyof (typeof products)[0] | null>(
+    null
+  );
+
+  // const discountsAndOffers = products.slice(0, 3);
+  // const featuredProducts = products.slice(3, 6);
+  // const recommendedProducts = products.slice(0, 5);
+  // const newArrivals = products.slice(4, 7);
+
+  useEffect(() => {
+    (async () => {
+      const { data, error } = await supabase.from('products').select();
+
+      if (error) {
+        console.log('error: ', error);
+      } else {
+        console.log('data: ', data);
+
+        setProducts(data);
+      }
+    })();
+  }, []);
 
   //
   return (
@@ -79,7 +98,7 @@ export default function Home() {
         <View className="px-5 my-2.5">
           <Text className="text-xl font-bold mb-4">Featured Products</Text>
           <FlatList
-            data={featuredProducts}
+            data={product?.slice(0, 3)}
             horizontal
             showsHorizontalScrollIndicator={false}
             keyExtractor={item => item.id}
@@ -104,7 +123,7 @@ export default function Home() {
         <View className="px-5 my-2.5">
           <Text className="text-xl font-bold mb-4">New Arrivals</Text>
           <FlatList
-            data={newArrivals}
+            data={product?.slice(5, 8)}
             horizontal
             showsHorizontalScrollIndicator={false}
             keyExtractor={item => item.id}
@@ -115,7 +134,7 @@ export default function Home() {
         <View className="px-5 my-2.5">
           <Text className="text-xl font-bold mb-4">Discounts & Offers</Text>
           <FlatList
-            data={discountsAndOffers}
+            data={product?.slice(10, 15)}
             horizontal
             showsHorizontalScrollIndicator={false}
             keyExtractor={item => item.id}
@@ -126,7 +145,7 @@ export default function Home() {
         <View className="px-5 my-2.5">
           <Text className="text-xl font-bold mb-4">Recommended for You</Text>
           <ScrollView horizontal className="flex-row flex-wrap ">
-            {recommendedProducts.map(item => (
+            {product?.slice(18, 22).map(item => (
               <View className="mb-4" key={item.id}>
                 <ProductCard {...item} />
               </View>

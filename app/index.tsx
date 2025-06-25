@@ -7,12 +7,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Index() {
   const [sessionExist, setSessionExist] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkSession = async () => {
-      setLoading(true);
-
       const {
         data: { session },
       } = await supabase.auth.getSession();
@@ -22,9 +20,11 @@ export default function Index() {
       }
     };
     checkSession();
+    setLoading(false);
   }, []);
 
   //
+
   return (
     <SafeAreaView>
       {loading && (
@@ -33,8 +33,8 @@ export default function Index() {
         </View>
       )}
 
-      {sessionExist && <Redirect href={'/(root)/(tabs)/home'} />}
       {!sessionExist && <Login />}
+      {sessionExist && <Redirect href={'/(root)/(tabs)/home'} />}
     </SafeAreaView>
   );
 }
